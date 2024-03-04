@@ -68,4 +68,7 @@ def auth_user(request):
 
 
 def index(request):
-    return render(request,'index.html')
+     if request.user.is_authenticated :
+        return redirect('home-page')
+     else:
+        return render(request,'index.html')

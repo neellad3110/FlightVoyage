@@ -38,6 +38,7 @@
               </div>
 
               {% endfor %}
+              <h2 class="mb-3 text-center">Flight Voyage</h2>
               <div class="col-2" style="float: right">
                 <div class="row">
                   <div class="col-12" >
@@ -48,10 +49,10 @@
                   </div>
                 </div>
               </div>
-              <h2 class="mb-5">Hey user !</h2>
+              <h3 class="mb-5">Hey {{user.name}} !</h3>
               <br/>
               
-              <form id="search_flight"method="post">
+              <!-- <form id="search_flight"method="post">
                 {% csrf_token %}
                 <div class="container col-12" style="margin-bottom: 10px">
                   <div class="row">
@@ -90,15 +91,15 @@
                     </div>
                     
                 </div>
-              </form>
+              </form> -->
               <div class="col-12 mt-5 mb-5">
-                <h2>Your Booking History</h2>
+                <h3>Your Booking History</h3>
               </div>
           
               <div class="container-fluid my-3">
-                <div class="row">
+                <div class="row" id="user_booking_log_list">
                   
-                  <div class="col-12 mb-3">
+                  <!-- <div class="col-12 mb-3">
                     <div class="card border-secondary mb-3">
                       <div class="card-header"><h4>Indian Airlines</h4></div>
                       <div class="card-body text-secondary">
@@ -106,7 +107,7 @@
                         <h5 class="card-title">Flight Source : India </h5>
                         <h5 class="card-title">Flight Destination : Australia </h5>
                         <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
+                        <h5 class="card-title">Booking Status : <span class="label label-success" style="font-size:14px;">Confirmed</span></h5>
                         <div class="row mt-5">
                             <div class="col-2" >
                                 <button type="button" 
@@ -120,169 +121,7 @@
                        
                       </div>
                     </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="submit" onclick="window.location.href='/home/logout/'"
-                                  class="btn btn-danger btn-block btn-sm text-body">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="submit" onclick="window.location.href='/home/logout/'"
-                                  class="btn btn-danger btn-block btn-sm text-body">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="submit" onclick="window.location.href='/home/logout/'"
-                                  class="btn btn-danger btn-block btn-sm text-body">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Seat Number : 82 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="submit" onclick="window.location.href='/home/logout/'"
-                                  class="btn btn-danger btn-block btn-sm text-body" data-target="#cancellation_Modal">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="button"
-                                  class="btn btn-danger btn-block btn-sm text-body">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="button" onclick="window.location.href='/home/logout/'"
-                                  class="btn btn-danger btn-block btn-sm text-body">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header"><h4>Indian Airlines</h4></div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Journey Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5>
-                        <div class="row mt-5">
-                            <div class="col-2" >
-                                <button type="submit" onclick="window.location.href='/home/logout/'"
-                                  class="btn btn-danger btn-block btn-sm text-body">
-                                  Request Cancellation
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <p class="card-text">Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
-                      </div>
-                    </div>
-                  </div>
+                  </div> -->
                 </div>
                
               </div>
@@ -314,6 +153,7 @@
 </html>
 <script>
   $(document).ready(function () {
+
     $(".datepicker").datepicker({
       language: "es",
       autoclose: true,
@@ -322,9 +162,110 @@
       todayHighlight: true,
       format: "dd-mm-yyyy",
     });
+
+    
+     $.ajax({
+        type: "GET",
+        url: '{% url "mybookings-history-page" %}',
+        dataType:'json',
+        success:function(response){
+         
+          if(response.status==-1){
+            Swal.fire({
+              title: "Error",
+              text: response.message,
+              icon: "error",
+              confirmButtonText: "OK",
+              allowOutsideClick:false,
+            }).then(function() {
+              window.location = '{% url "home-page" %}';
+            });
+            
+          
+          }else if (response.status==0){
+            Swal.fire({
+              title: "Notice",
+              text: response.message,
+              icon: "info",
+              confirmButtonText: "OK",
+              allowOutsideClick:false,
+            }).then(function() {
+              window.location = '{% url "home-page" %}';
+            });
+            
+          }
+          else {
+
+              var html=''
+              
+              if(response.flight.length == 0){
+
+                      html+="  <div class='col-12 mb-3'>";
+                      html+="    <div class='card border-secondary mb-3'>";
+                      html+="      <div class='card-body text-secondary'>";
+                      html+="        <h5 class='card-title text-center'>No Bookings.</h5>";
+                      html+="      </div>";
+                      html+="    </div>";
+                      html+="  </div>";
+              }
+              else{
+                  
+                  for(var i=0;i<response.flight.length;i++){
+
+                      html+="<div class='col-12 mb-3'>";
+                      html+="  <div class='card border-secondary mb-3'>";
+                      html+="    <div class='card-header'><h4>"+response.flight[i].name+"</h4></div>";
+                      html+="    <div class='card-body text-secondary'>";
+                      html+="      <h5 class='card-title'>Flight Number : "+response.flight[i].number+" </h5>";
+                      html+="      <h5 class='card-title'>Seat Number : "+response.flight[i].seat+" </h5>";
+                      html+="      <h5 class='card-title'>Flight Source : "+response.flight[i].journey_source+" </h5>";
+                      html+="      <h5 class='card-title'>Flight Destination : "+response.flight[i].journey_destination+" </h5>";
+                      html+="      <h5 class='card-title'>Journey Date and Time : "+response.flight[i].departure_date+" , "+response.flight[i].departure_time+"</h5>";
+                      
+                      if (response.flight[i].status==1) {
+        
+                        html+="      <h5 class='card-title mt-5'>Booking Status : <span class='label label-success' style='font-size:14px;'>Confirmed</span></h5>";
+                        html+="      <h5 class='card-title mt-3'>Booking Date and Time : "+response.flight[i].booking_datetime+" </h5>";
+                        
+                        if(response.flight[i].request_cancellation) {
+        
+                            html+="      <div class='row mt-5'>";
+                            html+="          <div class='col-2' >";
+                            html+="              <button type='button' ";
+                            
+                            flight_id_text="'"+response.flight[i].id+"'"
+                            html+='                class="btn btn-danger btn-block btn-sm text-body" onclick="process_cancellation('+flight_id_text+','+response.flight[i].seat+')" >';
+                            html+="                Request Cancellation";
+                            html+="              </button>";
+                            html+="          </div>";
+                            html+="      </div>";
+                            html+="      <p class='card-text'>Cancellation is applicable from 24 hours prior to the flight departure time.</p>"; 
+                        }
+                        
+                      }else{
+                          
+                        html+="      <h5 class='card-title mt-5'>Booked on : "+response.flight[i].booking_datetime+" </h5>"; 
+                        html+="      <h5 class='card-title mt-3'>Booking Status : <span class='label label-danger' style='font-size:14px;'>Cancelled</span></h5>";
+                        html+="      <h5 class='card-title mt-3'>Cancellation Date and Time : "+response.flight[i].modified_at+" </h5>";
+                      
+                      }
+                      
+                      html+="    </div>";
+                      html+="  </div>";
+                      html+="</div>";
+                  }
+                  
+              }
+              
+              $("#user_booking_log_list").html(html)  
+          }
+        }
+    });
+
+
   });
 
-  function process_cancellation(){
+  function process_cancellation(flight_id,seat){
 
     Swal.fire({
         title: "Are you sure?",
@@ -335,13 +276,60 @@
         cancelButtonColor: "#d33",
         confirmButtonText: "Confirm"
       }).then((result) => {
-        if (result.isConfirmed) { 
-          Swal.fire({
-            title: "Success",
-            text: "Your booking has been cancelled.",
-            icon: "success"
-          });
-        }
+
+        $.ajax({
+          type: "POST",
+          url: '{% url "mybookings-history-page" %}',
+          data:{
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+            'flight_id': flight_id,
+            'seat' : seat,
+          },
+          dataType:'json',
+          success:function(response){
+
+            if(response.status==-1){
+              Swal.fire({
+                title: "Error",
+                text: response.message,
+                icon: "error",
+                confirmButtonText: "OK",
+                allowOutsideClick:false,
+              }).then(function() {
+                window.location = '{% url "mybookings-page" %}';
+              }); 
+              
+            
+            }else if (response.status==0){
+              Swal.fire({
+                title: "Request Decline",
+                text: response.message,
+                icon: "info",
+                confirmButtonText: "OK",
+                allowOutsideClick:false,
+              }).then(function() {
+                window.location = '{% url "mybookings-page" %}';
+              }); 
+              
+            }else{
+                Swal.fire({
+                  title: "Success",
+                  text: response.message,
+                  icon: "success",
+                  confirmButtonText: "Done",
+                  allowOutsideClick:false,
+                }).then(function() {
+                  window.location = '{% url "mybookings-page" %}';
+                }); 
+            }
+
+          }
+        
+        
+        });
+
+
+
       });
   }
 </script>

@@ -32,12 +32,13 @@
             <div class="card-body p-5">
               {% for message in messages %}
 
-              <div class="alert alert-success">
+              <div class="alert alert-danger">
                 <a class="close" href="#" data-dismiss="alert">×</a>
                 {{ message }}
               </div>
 
               {% endfor %}
+              <h2 class="mb-3 text-center">Flight Voyage</h2>
               <div class="col-2" style="float: right">
                 <div class="row">
                   <div class="col-12" >
@@ -48,10 +49,11 @@
                   </div>
                 </div>
               </div>
-              <h2 class="mb-5">Hey {{response.name}} !</h2>
+              
+              <h3 class="mb-5">Hey {{response.user.name}} !</h3>
               <br/>
               
-              <form id="search_flight"method="post">
+              <!-- <form id="search_flight"method="post">
                 {% csrf_token %}
                 <div class="container col-12" style="margin-bottom: 10px">
                   <div class="row">
@@ -76,51 +78,82 @@
                     </div>
                     
                 </div>
-              </form>
+              </form> -->
               <div class="col-12 mt-5 mb-5">
-                <h2>Available Flights :</h2>
+                <h3>Available Flights :</h3>
               </div>
           
               <div class="container-fluid my-3">
                 <div class="row">
+                 
+                  {% if response.flight %}
                   
-                  <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header">
-                        <div class="row" >
-                          <div class="col-6">
-                            <h4>Indian Airlines</h4>
-                          </div>
-                          <div class="col-6">
-                            <span class="label label-success" style="float: right;font-size:18px">Available</span>
-                           
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Depature Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Available Seats : 2</h5>
-                        <h5 class="card-title">Total Seats : 20 </h5>
-                        <!-- <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5> -->
-                        <div class="row mt-3">
-                            <div class="col-2" >
-                                <button type="button" 
-                                  class="btn btn-success btn-block btn-sm text-body" onclick="process_booking()" >
-                                  Book
-                                </button>
+                      {% for flight_data in response.flight    %}
+                            <div class="col-12 mb-3">
+                              <div class="card border-secondary mb-3">
+                                <div class="card-header">
+                                  <div class="row" >
+                                    <div class="col-6">
+                                      <h4>{{flight_data.name}}</h4>
+                                    </div>
+                                    <div class="col-6">
+                                      {% if not flight_data.available_seats or not flight_data.is_booking_allowed  %}
+                                        <span class="label label-default" style="float: right;font-size:18px">Not Available</span>
+                                      {% else  %}
+                                        <span class="label label-success" style="float: right;font-size:18px">Available</span> 
+                                      {% endif %}
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                                <div class="card-body text-secondary">
+                                  <h5 class="card-title">Flight Number : {{flight_data.number}} </h5>
+                                  <h5 class="card-title">Flight Source : {{flight_data.journey_source}} </h5>
+                                  <h5 class="card-title">Flight Destination : {{flight_data.journey_destination}} </h5>
+                                  <h5 class="card-title">Depature Date and Time : {{flight_data.departure_date}} , {{flight_data.departure_time}} </h5>
+                                  <h5 class="card-title">Available Seats : {{flight_data.available_seats}}</h5>
+                                  <h5 class="card-title">Total Seats : {{flight_data.seats}} </h5>
+                                  <!-- <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5> -->
+                                  
+                                  {% if flight_data.available_seats != 0  and flight_data.is_booking_allowed %}
+
+                                        <div class="row mt-3">
+                                          <div class="col-2" >
+                                              <button type="button" 
+                                                class="btn btn-success btn-block btn-sm text-body" onclick="process_booking('{{response.user.id}}','{{flight_data.id}}')" >
+                                                Book
+                                              </button>
+                                          </div>
+                                          
+                                      </div>
+                                      <p class="card-text mt-3">** Cancellation is applicable from 24 hours prior to the flight departure time.</p>
+                                  {% elif not flight_data.is_booking_allowed  %}
+                                  
+                                  <h5 class="card-title mt-5">Remarks : Booking period is closed 24h prior to depature time. </h5>
+
+                                  {% elif not flight_data.available_seats %}
+                                  
+                                  <h5 class="card-title mt-5">Remarks : Currently seats are not available, check back soon.</h5>
+
+                                  {% endif %}
+                                  
+                                  
+                                </div>
+                              </div>
                             </div>
-                            
+                      {% endfor %} 
+                  {% else %}
+                      <div class="col-12 mb-3">
+                        <div class="card border-secondary mb-3">
+                          
+                          <div class="card-body text-secondary">
+                            <h5 class="card-title text-center">Flights Not Available.</h5>
+
+                          </div>
                         </div>
-                        <p class="card-text mt-3">** Cancellation is applicable from 24 hours prior to the flight departure time.</p>
-                       
                       </div>
-                    </div>
-                  </div>
-                  <div class="col-12 mb-3">
+                  {% endif %}     
+                  <!-- <div class="col-12 mb-3">
                     <div class="card border-secondary mb-3">
                       <div class="card-header">
                         <div class="row" >
@@ -141,11 +174,11 @@
                         <h5 class="card-title">Depature Date and Time : 29-02-2024 </h5>
                         <h5 class="card-title">Available Seats : 0</h5>
                         <h5 class="card-title">Total Seats : 20 </h5>
-                        <!-- <h5 class="card-title">Booking Status : <span class="label label-success">Confirmed</span></h5> -->
+                       
                         
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                
               </div>
@@ -178,28 +211,63 @@
 <script>
 
 
-  function process_booking(){
+  function process_booking(user_id,flight_id){
 
     Swal.fire({
         icon:"info",
         title: "Booking",
-        input: 'select',
-        inputOptions: {
-          apples: 'Apples',
-          bananas: 'Bananas',
-          grapes: 'Grapes',
-          oranges: 'Oranges'
-        },
-        inputPlaceholder: 'Select your Seat :',
         confirmButtonText: "Confirm",
-  showCancelButton: true,
+        showCancelButton: true,
+        showCancelButton: true,
       }).then((result) => {
         if (result.isConfirmed) { 
-          Swal.fire({
-            title: "Success!",
-            text: "Your seat has been booked successfully..",
-            icon: "success",
-            confirmButtonText: "View My Bookings",
+
+            $.ajax({
+              type: "POST",
+              data:{
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'user_id':user_id,
+                'flight_id':flight_id},
+              url: '{% url "flight-booking-page" %}',
+              dataType: "json",
+              success:function(response){
+                
+                if(response.status==-1){
+                  Swal.fire({
+                    title: "Error",
+                    text: response.message,
+                    icon: "error",
+                    confirmButtonText: "OK",
+                    allowOutsideClick:false,
+                  }).then(function() {
+                    window.location = '{% url "home-page" %}';
+                  }); 
+                  
+                
+                }else if (response.status==0){
+                  Swal.fire({
+                    title: "Notice",
+                    text: response.message,
+                    icon: "info",
+                    confirmButtonText: "OK",
+                    allowOutsideClick:false,
+                  }).then(function() {
+                    window.location = '{% url "home-page" %}';
+                  }); 
+                  
+                }
+                else{
+                  Swal.fire({
+                    title: "Success",
+                    text: response.message,
+                    icon: "success",
+                    confirmButtonText: "View My Bookings",
+                    allowOutsideClick:false,
+                  }).then(function() {
+                    window.location = '{% url "mybookings-page" %}';
+                  });      
+                }
+              }
           });
         }
       });
