@@ -1,0 +1,682 @@
+[
+{
+    "model": "flights.country",
+    "pk": "4742323d-505e-4895-a2a4-b3c065c74022",
+    "fields": {
+        "name": "Germany",
+        "created_at": "2024-02-28T04:56:29.246Z",
+        "modified_at": "2024-02-28T04:56:29.246Z"
+    }
+},
+{
+    "model": "flights.country",
+    "pk": "4f29f537-83bc-4002-a449-b5dcd83aa19a",
+    "fields": {
+        "name": "UK",
+        "created_at": "2024-02-28T04:59:29.935Z",
+        "modified_at": "2024-02-28T04:59:29.935Z"
+    }
+},
+{
+    "model": "flights.country",
+    "pk": "5af7ee05-5897-4eef-98d2-507d975c327d",
+    "fields": {
+        "name": "India",
+        "created_at": "2024-02-28T04:29:09.262Z",
+        "modified_at": "2024-02-28T04:29:09.262Z"
+    }
+},
+{
+    "model": "flights.country",
+    "pk": "9b71645d-c38c-4bf1-8f5c-1f006fc871d7",
+    "fields": {
+        "name": "Canada",
+        "created_at": "2024-02-28T04:55:51.897Z",
+        "modified_at": "2024-02-28T04:55:51.897Z"
+    }
+},
+{
+    "model": "flights.country",
+    "pk": "a2206288-6942-4432-9e2c-527623de0e55",
+    "fields": {
+        "name": "USA",
+        "created_at": "2024-02-28T04:29:29.104Z",
+        "modified_at": "2024-02-28T04:29:29.104Z"
+    }
+},
+{
+    "model": "flights.country",
+    "pk": "dce65fd5-99e4-420b-8f88-4e52d5695691",
+    "fields": {
+        "name": "Australia",
+        "created_at": "2024-02-28T04:55:28.772Z",
+        "modified_at": "2024-02-28T04:55:28.772Z"
+    }
+},
+{
+    "model": "flights.flight",
+    "pk": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+    "fields": {
+        "name": "Indian Airlines",
+        "number": "IA001",
+        "source": "5af7ee05-5897-4eef-98d2-507d975c327d",
+        "destination": "4f29f537-83bc-4002-a449-b5dcd83aa19a",
+        "departure_date": "2024-03-06",
+        "departure_time": "18:00:00",
+        "cancellation_period": "2024-03-05T12:30:00Z",
+        "seats": 5,
+        "created_at": "2024-03-03T12:10:07.956Z",
+        "modified_at": "2024-03-04T18:52:48.255Z"
+    }
+},
+{
+    "model": "flights.flight",
+    "pk": "9817933d-0e57-411c-b3a7-8e380ca52137",
+    "fields": {
+        "name": "Indian Airlines",
+        "number": "IA002",
+        "source": "5af7ee05-5897-4eef-98d2-507d975c327d",
+        "destination": "4f29f537-83bc-4002-a449-b5dcd83aa19a",
+        "departure_date": "2024-03-06",
+        "departure_time": "12:00:00",
+        "cancellation_period": "2024-03-05T06:30:00Z",
+        "seats": 5,
+        "created_at": "2024-03-03T12:35:46.997Z",
+        "modified_at": "2024-03-03T12:35:46.997Z"
+    }
+},
+{
+    "model": "flights.flight",
+    "pk": "b1589271-9c27-41fd-b1c5-8590b95af216",
+    "fields": {
+        "name": "UK Airlines",
+        "number": "UK001",
+        "source": "5af7ee05-5897-4eef-98d2-507d975c327d",
+        "destination": "4f29f537-83bc-4002-a449-b5dcd83aa19a",
+        "departure_date": "2024-03-06",
+        "departure_time": "16:30:00",
+        "cancellation_period": "2024-03-05T11:00:00Z",
+        "seats": 3,
+        "created_at": "2024-03-03T12:36:38.037Z",
+        "modified_at": "2024-03-03T12:36:38.037Z"
+    }
+},
+{
+    "model": "flights.flight",
+    "pk": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+    "fields": {
+        "name": "Indigo Airlines",
+        "number": "IG001",
+        "source": "5af7ee05-5897-4eef-98d2-507d975c327d",
+        "destination": "4f29f537-83bc-4002-a449-b5dcd83aa19a",
+        "departure_date": "2024-03-06",
+        "departure_time": "10:00:00",
+        "cancellation_period": "2024-03-05T04:30:00Z",
+        "seats": 5,
+        "created_at": "2024-03-03T12:37:36.790Z",
+        "modified_at": "2024-03-03T12:37:36.790Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "0cecd450-7683-47e1-bab9-a1c8d85b9835",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 3,
+        "status": 1,
+        "created_at": "2024-03-04T09:20:42.194Z",
+        "modified_at": "2024-03-04T09:20:42.194Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "0e78de3e-bf20-4774-aba8-45779de7f9a9",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 3,
+        "status": 1,
+        "created_at": "2024-03-04T08:12:47.114Z",
+        "modified_at": "2024-03-04T08:12:47.114Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "1a8beae4-5a62-4ae9-9d16-9b83fb7cb5ed",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-04T10:18:18.753Z",
+        "modified_at": "2024-03-04T10:18:18.753Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "4399c43f-25ad-40ce-a5df-bf80c18431c3",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-03T12:44:34.408Z",
+        "modified_at": "2024-03-03T12:44:34.408Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "4cec8997-5116-4345-8b38-0639f09d71eb",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 2,
+        "status": 1,
+        "created_at": "2024-03-04T04:06:21.124Z",
+        "modified_at": "2024-03-04T04:06:21.124Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "516f81ea-7616-498a-a500-20c7d62e0cf6",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-04T04:23:22.636Z",
+        "modified_at": "2024-03-04T04:23:22.636Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "6d162dc2-b1f2-4cfa-93f2-0bbabb66cd24",
+    "fields": {
+        "user": "4c8a5844-eef7-4fb6-a667-61e3ec4ee0f4",
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 2,
+        "status": 1,
+        "created_at": "2024-03-03T12:46:24.623Z",
+        "modified_at": "2024-03-03T12:46:24.623Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "9fb1b082-3040-4a25-bc1e-0694d02879e3",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 1,
+        "status": -1,
+        "created_at": "2024-03-04T10:13:27.954Z",
+        "modified_at": "2024-03-04T10:13:27.954Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "c91efaf3-b380-47c4-9847-9bc32997ee10",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 1,
+        "status": -1,
+        "created_at": "2024-03-04T07:43:01.284Z",
+        "modified_at": "2024-03-04T07:43:01.284Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "f2c14ed0-0d79-4cb1-8a27-367feafbbc11",
+    "fields": {
+        "user": "4c8a5844-eef7-4fb6-a667-61e3ec4ee0f4",
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-03T12:46:38.328Z",
+        "modified_at": "2024-03-03T12:46:38.328Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "faabf8b6-90f0-462c-8105-11d7c06de887",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 3,
+        "status": -1,
+        "created_at": "2024-03-04T09:06:20.095Z",
+        "modified_at": "2024-03-04T09:06:20.095Z"
+    }
+},
+{
+    "model": "flights.flightbookinglog",
+    "pk": "fb4c5d13-1157-47ea-b570-0608f2cac180",
+    "fields": {
+        "user": "50e930f1-8128-4965-8dad-4dd96087f64a",
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-03T12:44:55.457Z",
+        "modified_at": "2024-03-03T12:44:55.457Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "01cf5a28-0422-4a24-bc21-fb5878e488de",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-03T12:10:07.963Z",
+        "modified_at": "2024-03-03T12:10:07.963Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "0f7f652e-42d7-4efd-92f9-7a15a87d0c98",
+    "fields": {
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 2,
+        "status": 0,
+        "created_at": "2024-03-03T12:35:47.001Z",
+        "modified_at": "2024-03-03T12:35:47.001Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "174fef62-c3da-4401-ad0a-5681bfb44ea3",
+    "fields": {
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-03T12:35:47.001Z",
+        "modified_at": "2024-03-03T12:35:47.001Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "203e4d60-2c63-4436-bc5d-f2ebb40c6b3e",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-03T12:10:07.963Z",
+        "modified_at": "2024-03-03T12:10:07.963Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "2cf69afd-7822-441e-991a-d0b0096ae598",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-03T16:26:38.377Z",
+        "modified_at": "2024-03-03T16:26:38.377Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "34d1b220-756a-44f5-aa3d-32a7d8c48b7d",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 2,
+        "status": 0,
+        "created_at": "2024-03-03T16:27:46.865Z",
+        "modified_at": "2024-03-03T16:27:46.865Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "4300314e-a894-4bca-b832-9221d408c066",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-03T19:41:29.601Z",
+        "modified_at": "2024-03-03T19:41:29.601Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "4e076d3b-171c-4581-86af-d6fc2b2b8a54",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 2,
+        "status": 0,
+        "created_at": "2024-03-03T19:41:29.601Z",
+        "modified_at": "2024-03-03T19:41:29.601Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "500f76bd-6e98-4010-8e6d-2d3029f0517c",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 2,
+        "status": 0,
+        "created_at": "2024-03-03T16:26:38.376Z",
+        "modified_at": "2024-03-03T16:26:38.376Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "5239e08c-e30b-4fb7-bb3c-1be0449e317d",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-03T12:10:07.962Z",
+        "modified_at": "2024-03-03T12:10:07.962Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "5dd890fc-9c99-4700-813f-176fa7f08bc1",
+    "fields": {
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 3,
+        "status": 1,
+        "created_at": "2024-03-03T12:36:38.039Z",
+        "modified_at": "2024-03-04T09:20:42.190Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "5ebc3308-adcd-44ff-be0c-54914700d0fa",
+    "fields": {
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 1,
+        "status": 0,
+        "created_at": "2024-03-03T12:35:47.000Z",
+        "modified_at": "2024-03-04T10:13:27.942Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "602e99b4-d34c-4f71-814f-31e71ad3bc49",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-03T16:27:46.866Z",
+        "modified_at": "2024-03-03T16:27:46.866Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "71a1ca78-5653-4083-81d7-ef1dd05a82cd",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-03T12:10:07.959Z",
+        "modified_at": "2024-03-03T12:44:34.403Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "76e72e2c-2dca-4f8f-aa4d-3cb496e55312",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-03T16:26:38.378Z",
+        "modified_at": "2024-03-03T16:26:38.378Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "77d4f15e-7992-4e3c-9596-b69bda88df4f",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 1,
+        "status": 0,
+        "created_at": "2024-03-04T18:52:48.265Z",
+        "modified_at": "2024-03-04T18:52:48.265Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "7cfba4a1-f17c-4080-b435-3f38f08245fe",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-03T16:26:38.377Z",
+        "modified_at": "2024-03-03T16:26:38.377Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "807c7e42-85a7-4cbd-83e1-d7199d6ac0f4",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-03T19:41:29.602Z",
+        "modified_at": "2024-03-03T19:41:29.602Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "81752c65-a411-45e6-804a-be11b362c018",
+    "fields": {
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-03T12:35:47.002Z",
+        "modified_at": "2024-03-03T12:35:47.002Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "890067f9-09d8-4aee-bfc5-942cd3f9419f",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-03T19:41:29.602Z",
+        "modified_at": "2024-03-03T19:41:29.602Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "946e94e1-9125-4f7c-83b2-798a4fafa876",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 2,
+        "status": 1,
+        "created_at": "2024-03-03T12:10:07.961Z",
+        "modified_at": "2024-03-03T12:46:24.620Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "959eb670-3582-44b8-8351-9ab26914c4d0",
+    "fields": {
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 2,
+        "status": 1,
+        "created_at": "2024-03-03T12:36:38.039Z",
+        "modified_at": "2024-03-04T04:06:21.117Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "99fd8e63-68ad-4952-a9f7-f7328c17f9af",
+    "fields": {
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-03T12:37:36.792Z",
+        "modified_at": "2024-03-03T12:37:36.792Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "9bb21d51-587a-49ae-a1c3-41b7676fab26",
+    "fields": {
+        "flight": "9817933d-0e57-411c-b3a7-8e380ca52137",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-03T12:35:47.002Z",
+        "modified_at": "2024-03-03T12:35:47.002Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "a6aeb426-9dec-4f1b-bc32-1e2507fb3f48",
+    "fields": {
+        "flight": "b1589271-9c27-41fd-b1c5-8590b95af216",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-03T12:36:38.038Z",
+        "modified_at": "2024-03-03T12:46:38.326Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "a6d73e43-3176-4a73-8912-c8758a2722ee",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-04T18:52:48.271Z",
+        "modified_at": "2024-03-04T18:52:48.271Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "a81fbc4b-831b-45af-942a-106e6f6c990f",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 3,
+        "status": 0,
+        "created_at": "2024-03-03T16:27:46.865Z",
+        "modified_at": "2024-03-03T16:27:46.865Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "aa4396d4-2c72-4440-bb42-9db59e38f807",
+    "fields": {
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-03T12:37:36.792Z",
+        "modified_at": "2024-03-03T12:37:36.792Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "b737d52e-d635-42e9-8e19-ca41df4a5601",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-03T16:27:46.866Z",
+        "modified_at": "2024-03-03T16:27:46.866Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "b8ee4ad0-4280-4edb-826a-fb053ed94fab",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 4,
+        "status": 0,
+        "created_at": "2024-03-04T18:52:48.271Z",
+        "modified_at": "2024-03-04T18:52:48.271Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "c34672ad-b6a0-4ea5-b310-994170599a03",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 2,
+        "status": 0,
+        "created_at": "2024-03-04T18:52:48.270Z",
+        "modified_at": "2024-03-04T18:52:48.270Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "cfb39820-1c30-4eb5-9ab7-1f5b822984cb",
+    "fields": {
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 2,
+        "status": 0,
+        "created_at": "2024-03-03T12:37:36.791Z",
+        "modified_at": "2024-03-03T12:37:36.791Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "d9526186-1e28-4d43-9d3b-f969d6555f86",
+    "fields": {
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 1,
+        "status": 1,
+        "created_at": "2024-03-03T12:37:36.791Z",
+        "modified_at": "2024-03-04T10:18:18.748Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "dd0bfd4d-e6c4-4c1a-bfac-55fcf19fa073",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-04T18:52:48.272Z",
+        "modified_at": "2024-03-04T18:52:48.272Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "e5d11b0e-12b8-4426-8913-a18cf68a557f",
+    "fields": {
+        "flight": "c5e0582a-d88b-4032-9a8b-81345338d71f",
+        "seat": 5,
+        "status": 0,
+        "created_at": "2024-03-03T12:37:36.793Z",
+        "modified_at": "2024-03-03T12:37:36.793Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "eba5b672-967b-4536-8482-cbf74e360751",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 1,
+        "status": 0,
+        "created_at": "2024-03-03T19:41:29.599Z",
+        "modified_at": "2024-03-03T19:41:29.599Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "f5eb61d2-5327-45a2-a5d6-fac13db32748",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 1,
+        "status": 0,
+        "created_at": "2024-03-03T16:26:38.373Z",
+        "modified_at": "2024-03-03T16:26:38.373Z"
+    }
+},
+{
+    "model": "flights.flightseatmanager",
+    "pk": "fddfc545-6f63-4d9d-9f6f-b9a47574183d",
+    "fields": {
+        "flight": "79b3703d-1987-4855-a62b-3b6b3952cc3f",
+        "seat": 1,
+        "status": 0,
+        "created_at": "2024-03-03T16:27:46.864Z",
+        "modified_at": "2024-03-03T16:27:46.864Z"
+    }
+}
+]

@@ -23,13 +23,17 @@ class AuthenticationForm(forms.Form):
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-
+        
         try:
-            if not User.objects.filter(email=email).exists():
-                raise forms.ValidationError("User with this Email does not exists.")
-            return email  
+            user = User.objects.get(email=email)
+           
+            return email
+            
+        except User.DoesNotExist:
+            
+            raise forms.ValidationError("User with this Email does not exist.")
+            
         except Exception as e:
-            raise forms.ValidationError('Request failed, try after some time.')       
-                
-
+            
+            raise forms.ValidationError('Request failed, try again later.')
         

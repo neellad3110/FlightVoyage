@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +30,7 @@ SECRET_KEY = 'django-insecure-ls%g48)-0$t54q#njr-vyby^dy)vmq^^ttc5+e9iun856#irfn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0']
 
 
 # Application definition
@@ -92,7 +94,7 @@ DATABASES = {
         'NAME': 'FlightVoyage',
         'USER': 'postgres',
         'PASSWORD': 'postgres@123',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 
