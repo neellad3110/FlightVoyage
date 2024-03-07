@@ -7,6 +7,7 @@ from django.core.validators import MinValueValidator
 # Create your models here.
 
 class Country(models.Model):
+    """Model class for countries """    
     
     id=models.CharField(default=uuid.uuid4,primary_key=True,editable=False)
     name = models.CharField(null=False,unique=True)
@@ -17,7 +18,8 @@ class Country(models.Model):
         return self.name
     
 class Flight(models.Model):
-    
+    """Model class for flight details"""
+
     id=models.CharField(default=uuid.uuid4,primary_key=True,editable=False)
     name = models.CharField(null=False)
     number = models.CharField(null=False,unique=True)
@@ -32,7 +34,14 @@ class Flight(models.Model):
 
 
     def save(self,*args, **kwargs):
+        """
+            Overrides the save method to handle booking changes and cancellation.
 
+            This method checks if the flight details have been changed and updates the booking status accordingly.
+            If the flight route or departure time is changed, the booking is cancelled, and a refund is issued.
+            If the flight details remain the same, the booking status is updated.
+
+        """   
         
         if self.pk:
             remark=''
@@ -65,6 +74,7 @@ class Flight(models.Model):
                 for seat in range(1,self.seats+1):
                     FlightSeatManager.objects.create(flight_id=self.id,seat=seat,status=0)
 
+        # cancellation period 24 hours prior to the depature date
         departure_datetime = datetime.combine(self.departure_date, self.departure_time)
         self.cancellation_period = departure_datetime - timedelta(hours=24)
 
@@ -74,7 +84,7 @@ class Flight(models.Model):
         return f"{self.number} - {self.name}"
     
 class FlightBookinglog(models.Model):
-
+    """Model class for Flight Log entries"""
     STATUS_CHOICES = (
         (-1, 'Cancelled'),
         (1, 'Confirmed'),
@@ -89,7 +99,7 @@ class FlightBookinglog(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
 class FlightSeatManager(models.Model):
-
+    """Model class for Flight seat management and logs."""
     STATUS_CHOICES = (
         (0, 'Pending'),
         (1, 'Confirmed'),

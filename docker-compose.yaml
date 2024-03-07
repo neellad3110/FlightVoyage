@@ -1,3 +1,38 @@
+
+# Docker Compose configuration for a Django development environment with PostgreSQL and pgAdmin.
+
+# This Docker Compose file defines three services:
+# 1. 'web': Django web application service.
+# 2. 'db': PostgreSQL database service.
+# 3. 'pgadmin': pgAdmin service for PostgreSQL administration.
+
+# Services Details:
+# - 'web' Service:
+#   - Builds an image for the Django web application.
+#   - Mounts the current directory as a volume for code synchronization.
+#   - Exposes port 8000 on the host, forwarding it to port 8000 on the container.
+#   - Depends on the 'db' service to ensure the database is available.
+
+# - 'db' Service:
+#   - Uses the official PostgreSQL image from Docker Hub.
+#   - Sets environment variables for the PostgreSQL database name, username, and password.
+#   - Configures a health check to ensure the availability of the PostgreSQL service.
+#   - Exposes port 5432 on the host, forwarding it to port 5432 on the container.
+
+# - 'pgadmin' Service:
+#   - Uses the pgAdmin image for PostgreSQL administration.
+#   - Sets default email and password for pgAdmin.
+#   - Exposes port 5050 on the host, forwarding it to port 80 on the container.
+#   - Depends on the 'db' service to ensure the database is available.
+
+# Volumes:
+# - 'postgres_data': A volume to persist PostgreSQL data across container restarts.
+
+
+
+
+
+
 version: '3'
 
 services:

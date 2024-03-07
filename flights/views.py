@@ -1,10 +1,9 @@
-from datetime import timezone
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
 from accounts.serializers import UserSerializer
-from .models import Flight,FlightSeatManager,FlightBookinglog
+from .models import FlightSeatManager,FlightBookinglog
 from django.db import connection
 from django.http import JsonResponse
 from home.models import Userlog
@@ -14,6 +13,13 @@ from home.models import Userlog
 # Create your views here.
 @login_required(login_url='/accounts/login')
 def flights(request):
+    """
+        Renders the flights page with available flights based on user's search criteria.
+
+        Retrieves flight details from the database based on user's selected source, destination,
+        journey date, and journey time. Displays available flights along with user information.
+
+    """
     if request.user.is_authenticated :
        
         if request.method == "POST" :
@@ -70,12 +76,11 @@ def flights(request):
                     return render(request,'flights.html', {'response': response })
                 
             except Exception as e :
-                print(e)
+                # print(e)
                 messages.info(request, "An error encountered, please try again.")
                 return redirect('home-page')
         
         else:
-            messages.info(request, "An error encountered, please try again.")
             return redirect('home-page')
     else:
         messages.info(request, "Access denied, Please login.") 
@@ -83,6 +88,13 @@ def flights(request):
 
 @login_required(login_url='/accounts/login')
 def bookflight(request):
+    """
+    Books a flight seat for the authenticated user.
+
+    Retrieves the user and flight IDs from the POST request, checks for available seats,
+    allocates a seat if available, and logs the booking information.
+
+    """
     if request.user.is_authenticated :
         user_id=request.POST['user_id']
         flight_id=request.POST['flight_id']
@@ -141,6 +153,10 @@ def bookflight(request):
         return redirect('index-page')       
 
 def userlogout(request):
-	logout(request)
-	messages.info(request, "You have successfully logged out.") 
-	return redirect('index-page')
+    """
+        Logs out the authenticated user.
+        Logs out the current user session and redirects to the index page with a success message.
+    """
+    logout(request)
+    messages.info(request, "You have successfully logged out.") 
+    return redirect('index-page')

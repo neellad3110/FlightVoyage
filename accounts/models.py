@@ -4,6 +4,7 @@ import uuid
 # Create your models here.
 
 class UserManager(BaseUserManager):
+    """Custom manager for the User model."""
     def create_user(self,name,email,password, **extra_fields):
         """creating user"""
         if not email:
@@ -15,7 +16,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser,PermissionsMixin):
-
+    """Model class for user details."""
     id=models.CharField(default=uuid.uuid4,primary_key=True,editable=False)
     name=models.CharField(max_length=100,null=False)
     email=models.EmailField(unique=True)

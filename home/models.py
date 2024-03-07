@@ -6,6 +6,7 @@ from django.core.validators import MinValueValidator
 # Create your models here.
 
 class Userlog(models.Model):
+    """Model class for User log"""
 
     STATUS_CHOICES = (
         (-1, 'Cancelled'),
@@ -24,6 +25,13 @@ class Userlog(models.Model):
 
     def save(self,*args, **kwargs):
 
+        """
+            Saves the instance and creates corresponding records in FlightBookinglog and FlightSeatManager.
+
+            When saving the instance, creates a new record in FlightBookinglog with user, flight, seat, and status details.
+            Updates the status of the corresponding seat in FlightSeatManager based on the status of the booking.
+        """
+
         FlightBookinglog.objects.create(user_id=self.user_id,flight_id=self.flight_id,seat=self.seat,status=self.status)
 
         flight_log=FlightSeatManager.objects.get(flight_id=self.flight_id,seat=self.seat)
@@ -35,9 +43,6 @@ class Userlog(models.Model):
         flight_log.save() 
 
         super().save(*args, **kwargs)
-        
-           
-
-       
+              
     def __str__(self) -> str:
         return "Update User log"

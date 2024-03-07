@@ -16,6 +16,16 @@ from django.utils import timezone
 # Create your views here.
 @login_required(login_url='/accounts/login')
 def home(request):
+    """
+      Renders the home page with user information and list of countries if the user is authenticated.
+
+      If the user is authenticated, retrieves the serialized user information and list of countries
+      from the database and renders the home page with this data. If an error occurs during this process,
+      displays an error message and redirects the user to the index page.
+
+      If the user is not authenticated, displays a message indicating access denial and redirects the user
+      to the index page.
+    """
     if request.user.is_authenticated :
       try:
             serialized_user=UserSerializer(request.user);
@@ -41,6 +51,19 @@ def mybookings(request):
 
 @login_required(login_url='/accounts/login')
 def mybookings_history(request):
+      """
+            Renders the user's booking history page and handles cancellation requests.
+
+            If the user is authenticated, retrieves the user's booking history from the database and renders
+            the page with this data. If a cancellation request is received via POST method, verifies if the
+            cancellation period for the flight is still valid, updates the necessary records for cancellation,
+            and sends a JSON response with the result. If an error occurs during this process, returns an error
+            JSON response.
+
+            If the user is not authenticated, displays a message indicating access denial and redirects the user
+            to the index page.
+      """
+
       if request.user.is_authenticated :
             
             if request.method=='POST':
@@ -168,8 +191,10 @@ def userlogout(request):
 
 
 def formatdatetime(value):
-    
+      """
+      Formats a datetime value into a string with the format "YYYY-MM-DD, HH:MM".
+      """
       datetime_value = datetime.strptime(str(value), "%Y-%m-%d %H:%M:%S.%f")
-      
+
       formatted_datetime = datetime_value.strftime("%Y-%m-%d , %H:%M")
       return formatted_datetime

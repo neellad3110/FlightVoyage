@@ -1,9 +1,15 @@
 from django import forms
 from .models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
+
 
 class RegistrationForm(UserCreationForm):
+
+    """"
+        Form for user authentication.
+
+        Validates email input and checks if a user with the provided email exists in the database.
+    """
 
     password1 = forms.CharField()
     password2 = forms.CharField()
@@ -13,6 +19,11 @@ class RegistrationForm(UserCreationForm):
         fields = ['name', 'email']
 
 class AuthenticationForm(forms.Form):
+    """
+        Form for user authentication.
+
+        Validates email input and checks if a user with the provided email exists in the database.
+    """
 
     email=forms.EmailField()
     password1 = forms.CharField()
@@ -25,7 +36,7 @@ class AuthenticationForm(forms.Form):
         email = self.cleaned_data.get('email')
         
         try:
-            user = User.objects.get(email=email)
+            User.objects.get(email=email)
            
             return email
             
