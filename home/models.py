@@ -17,22 +17,27 @@ class Userlog(models.Model):
     flight =models.ForeignKey(Flight,on_delete=models.CASCADE)
     seat= models.PositiveIntegerField(validators=[MinValueValidator(1)],null=False)
     status=models.IntegerField(default=0,null=False,choices=STATUS_CHOICES)
+    is_changed=models.IntegerField(default=0,null=False)
+    remarks=models.CharField(null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
     def save(self,*args, **kwargs):
 
-        super().save(*args, **kwargs)
-        
-        flight_log=FlightSeatManager.objects.get(flight_id=self.flight,seat=self.seat)
+        FlightBookinglog.objects.create(user_id=self.user_id,flight_id=self.flight_id,seat=self.seat,status=self.status)
+
+        flight_log=FlightSeatManager.objects.get(flight_id=self.flight_id,seat=self.seat)
         if self.status == 1:
             flight_log.status=1
         else: 
             flight_log.status=0
 
-        flight_log.save()    
+        flight_log.save() 
 
-        FlightBookinglog.objects.create(user_id=self.user,flight_id=self.flight,seat=self.seat,status=self.status)
+        super().save(*args, **kwargs)
+        
+           
 
+       
     def __str__(self) -> str:
         return "Update User log"

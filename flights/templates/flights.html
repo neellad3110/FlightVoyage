@@ -52,33 +52,7 @@
               
               <h3 class="mb-5">Hey {{response.user.name}} !</h3>
               <br/>
-              
-              <!-- <form id="search_flight"method="post">
-                {% csrf_token %}
-                <div class="container col-12" style="margin-bottom: 10px">
-                  <div class="row">
-                    <div class="col-4">
-                      <label style="font-size: 18px">Flight Name :</label>
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="form-group">
-                            <div class="input-group ">
-                              <input class="form-control" style="height:50px;" type="text" placeholder="Seach Flight Name" id="search_flight_name" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                     
-                        <div class="col-6 mt-5">
-                            <button type="button" class="btn btn-info btn-block btn-lg gradient-custom-4 text-body"><i class="glyphicon glyphicon-filter"></i>  Filter</button> 
-                 
-                        </div>                      
-                    </div>
-                    
-                </div>
-              </form> -->
+            
               <div class="col-12 mt-5 mb-5">
                 <h3>Available Flights :</h3>
               </div>
@@ -153,32 +127,7 @@
                         </div>
                       </div>
                   {% endif %}     
-                  <!-- <div class="col-12 mb-3">
-                    <div class="card border-secondary mb-3">
-                      <div class="card-header">
-                        <div class="row" >
-                          <div class="col-6">
-                            <h4>Indian Airlines</h4>
-                          </div>
-                          <div class="col-6">
-                            <span class="label label-default" style="float: right;font-size:18px">Not Available</span>
-                           
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="card-body text-secondary">
-                        <h5 class="card-title">Flight Number : IN2AU </h5>
-                        <h5 class="card-title">Flight Source : India </h5>
-                        <h5 class="card-title">Flight Destination : Australia </h5>
-                        <h5 class="card-title">Depature Date and Time : 29-02-2024 </h5>
-                        <h5 class="card-title">Available Seats : 0</h5>
-                        <h5 class="card-title">Total Seats : 20 </h5>
-                       
-                        
-                      </div>
-                    </div>
-                  </div> -->
+                 
                 </div>
                
               </div>
@@ -218,7 +167,7 @@
         title: "Booking",
         confirmButtonText: "Confirm",
         showCancelButton: true,
-        showCancelButton: true,
+        allowOutsideClick:false,
       }).then((result) => {
         if (result.isConfirmed) { 
 

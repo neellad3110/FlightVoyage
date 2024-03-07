@@ -22,7 +22,7 @@ class CustomUserlogAdmin(admin.ModelAdmin):
     
     def get_readonly_fields(self, request, obj=None):
         if obj:
-            return ('flight','seat','user')
+            return ('flight','seat','user','is_changed','remarks')
         return ()
 
 admin.site.register(Userlog,CustomUserlogAdmin)

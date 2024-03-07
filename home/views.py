@@ -10,6 +10,7 @@ from FlightVoyage.settings import TIME_ZONE as local_timezone
 from .models import Userlog
 from flights.models import Flight,FlightBookinglog,FlightSeatManager
 from flights.models import Country 
+from django.utils import timezone
 
 
 # Create your views here.
@@ -46,27 +47,24 @@ def mybookings_history(request):
 
                   flight_id=request.POST['flight_id']
                   seat=request.POST['seat']
-                  current_time = datetime.now()
+                  current_time = timezone.now()
 
                   try :
 
-                        flight_cancellation_confirm=Flight.objects.get(id=flight_id,cancellation_period__gt=current_time)
-
+                        flight_cancellation_confirm=Flight.objects.filter(id=flight_id,cancellation_period__gt=current_time)
+                        
                         if(flight_cancellation_confirm):
 
                               # update seat deallocation
-                              flight_seat_manager=FlightSeatManager.objects.get(flight_id=flight_id,seat=seat)
-                              flight_seat_manager.status=0
-                              flight_seat_manager.save()
+                              FlightSeatManager.objects.filter(flight_id=flight_id,seat=seat).update(status=0)
+                        
 
                               # adding new flight log
                               FlightBookinglog.objects.create(user_id=request.user.id,flight_id=flight_id,seat=seat,status=-1)
 
                               # updating user log
-                              user_log=Userlog.objects.get(user_id=request.user.id,flight_id=flight_id,seat=seat)
-                              user_log.status=-1
-                              user_log.save()
-                              
+                              Userlog.objects.filter(user_id=request.user.id,flight_id=flight_id,seat=seat).update(status=-1)
+                            
                               response={
                                     'status':1,
                                     'message':'Your Booking is cancelled successfully',
@@ -77,9 +75,11 @@ def mybookings_history(request):
                                     'status':0,
                                     'message':'Your Cancellation period is over. Kindly refresh the page.'
                               }
-                              return JsonResponse(response)
+                        
+                        return JsonResponse(response)
                                                  
                   except Exception as e:
+                        print(e)
                         response={
                                     'status':-1,
                                     'message':'An error encountered, please try again.'
@@ -110,14 +110,13 @@ def mybookings_history(request):
                                                                   END
                                                             ELSE 
                                                                   NULL 
-                                                      END AS request_cancellation
-                                                
+                                                      END AS request_cancellation,ul.is_changed,ul.remarks
                                                       FROM flights_flight f inner join home_userlog ul on f.id=ul.flight_id
                                                       where  ul.user_id = %s order by ul.created_at desc ;
                                                       
                                                       """
                               
-                              cursor.execute(flight_details_query,(local_timezone,local_timezone,user_id,))
+                              cursor.execute(flight_details_query,(local_timezone,local_timezone,user_id))
                               rows = cursor.fetchall()
                               
                               flight_details = []
@@ -135,6 +134,8 @@ def mybookings_history(request):
                                     'booking_datetime': formatdatetime(row[9]),
                                     'modified_at': formatdatetime(row[10]),
                                     'request_cancellation': row[11],
+                                    'is_changed':row[12],
+                                    'remarks':row[13],
                                     }
                                     flight_details.append(flight_detail)
                               

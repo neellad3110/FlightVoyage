@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'FlightVoyage',
         'USER': 'postgres',
         'PASSWORD': 'postgres@123',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 

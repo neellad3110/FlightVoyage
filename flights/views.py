@@ -3,7 +3,6 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
-import pytz
 from accounts.serializers import UserSerializer
 from .models import Flight,FlightSeatManager,FlightBookinglog
 from django.db import connection
@@ -37,8 +36,8 @@ def flights(request):
                                                 ELSE 0
                                             END AS is_booking_allowed
                                             FROM flights_flight f
-                                            where f.source_id= %s and f.destination_id= %s and f.departure_date= %s and f.departure_time >= %s ;
-                                            
+                                            where f.source_id= %s and f.destination_id= %s and f.departure_date= %s and f.departure_time >= %s
+                                            order by f.departure_time;
                                             """
                     
                     cursor.execute(flight_details_query,(journey_source,journey_destination,journey_date,journey_time))
@@ -118,9 +117,9 @@ def bookflight(request):
                     allot_seat.status=1
                     allot_seat.save()
 
-                    booking_log=FlightBookinglog.objects.create(seat=seat_status[0][1],status=1,flight_id=flight_id,user_id=user_id)
+                    FlightBookinglog.objects.create(seat=seat_status[0][1],status=1,flight_id=flight_id,user_id=user_id)
 
-                    user_log=Userlog.objects.create(seat=seat_status[0][1],status=1,flight_id=flight_id,user_id=user_id)
+                    Userlog.objects.create(seat=seat_status[0][1],status=1,flight_id=flight_id,user_id=user_id)
                     
                     response={
                             'status':1,
