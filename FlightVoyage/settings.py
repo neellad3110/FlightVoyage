@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'FlightVoyage',
         'USER': 'postgres',
         'PASSWORD': 'postgres@123',
-        'HOST': 'localhost',
+        'HOST': 'db',       # db -> docker engine , localhost for local postgres 
         'PORT': '5432',
     }
 

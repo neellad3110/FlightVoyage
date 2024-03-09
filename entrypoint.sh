@@ -3,7 +3,7 @@
 # Run database migrations
 python manage.py migrate
 
-python manage.py collectstatic 
+python manage.py collectstatic --no-input 
 
 # Dump initial data after migrations
 python manage.py loaddata initials/accounts_initial_data.json
